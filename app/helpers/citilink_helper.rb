@@ -1,0 +1,2 @@
+module CitilinkHelper
+end

@@ -1,0 +1,6 @@
+class CitilinkController < ApplicationController
+  def load_file
+     Citilink.import(params[:file]) if params[:file]
+     redirect_to root_url, notice: "Products imported."
+  end
+end

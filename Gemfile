@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'nokogiri'
+gem 'spreadsheet'
 #gem 'mysql2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

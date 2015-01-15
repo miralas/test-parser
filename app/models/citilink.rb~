@@ -1,6 +1,6 @@
 class Citilink < ActiveRecord::Base
 	def self.import(file)
-		spreadsheet = open(file)
+		spreadsheet = open_spreadsheet(file)
 		(1..spreadsheet.last_row).each do |f|
 			if (!f.nil? || f != "") then
 				Citilink.new
