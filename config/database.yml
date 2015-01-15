@@ -4,7 +4,7 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-default: &default
+ default: &default
   adapter: sqlite3
 #  encoding: utf8 
   pool: 5
@@ -27,8 +27,8 @@ default: &default
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: test
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  database: production
+  database: db/production.sqlite3
