@@ -1,5 +1,10 @@
 class CitilinkController < ApplicationController
   def load_file
-     Citilink.import(params[:file]) if params[:file]
+  	if params[:file] then
+	  	path = File.join("public", params[:file].original_filename) 
+	  	File.open(path, "wb") { |f| f.write(params[:file].read) }
+	    Citilink.import(params[:file].original_filename)
+	end
+
   end
 end

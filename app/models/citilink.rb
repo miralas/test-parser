@@ -1,11 +1,12 @@
+require 'csv'
+
 class Citilink < ActiveRecord::Base
 	def self.import(file)
-		spreadsheet = open(file)
-		(1..spreadsheet.last_row).each do |f|
-			if (!f.nil? || f != "") then
-				Citilink.new
-				Citilink.supplier_no = f
-				Citilink.save!
+		CSV.foreach("public/#{file}") do |row|
+			if (!row.nil? || row != "") then
+				good = Citilink.new
+				good.supplier_no = row.last
+				good.save!
 			end
 		end
 	end
